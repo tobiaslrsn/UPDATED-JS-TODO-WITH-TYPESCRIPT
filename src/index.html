@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="/src/ts/main.ts" type="module"></script>
+    <link rel="stylesheet" href="/src/scss/main.scss" />
+
+    <title>typescripting todo</title>
+  </head>
+  <header>Todos</header>
+  <body>
+    <div id="todo-input-container">
+      <form>
+        <input
+          type="text"
+          onfocus="this.value=''"
+          placeholder="what do you wanna do"
+          id="todo-input-field"
+          name="todo"
+          required
+          value=""
+        />
+        <button id="add-todo">ADD</button>
+      </form>
+      <button id="sort-todos">A-Ö</button>
+    </div>
+  </body>
+</html>

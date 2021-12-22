@@ -1,0 +1,10 @@
+@use "./elements/header";
+@use "./elements/feed";
+
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 3rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
