@@ -1,10 +1,59 @@
-body {
+/* body {
+  background-image: url(https://i.natgeofe.com/n/afed8e9e-e199-4f29-a4a2-846ea2ebe432/albuquerque-balloon-festival-new-mexico_4x3.jpg);
+  background-size: cover;
+  height: 100vh;
   margin: 0;
-  background-color: white;
+  background-position: center;
+} */
+/* 
+.check-todo,
+.remove-todo {
+  border: none;
+  background: red;
+  height: 1.2rem;
 }
-input {
-  background-color: blue;
+#todo-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
 }
-button {
-  background-color: red;
+
+#todo-container {
+  width: 30vw;
+  list-style: none;
+  font-size: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-direction: column;
 }
+
+#todo-input-container {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+.todo-task,
+.todo-task-done,
+.todo-task-remove {
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 2rem;
+  align-items: center;
+  margin: 20px;
+}
+
+.todo-task-span {
+  font-size: 1rem;
+  margin-right: 2rem;
+}
+
+.todo-task-done > .todo-task-span {
+  text-decoration: line-through;
+  color: rgba(82, 80, 77, 0.226);
+  font-size: 1rem;
+  margin-right: 2rem;
+}
+ */

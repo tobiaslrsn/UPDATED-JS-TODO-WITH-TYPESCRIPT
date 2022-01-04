@@ -4,13 +4,13 @@ let todos: Todo[] = JSON.parse(localStorage.getItem("todos")) || [];
 console.log(todos);
 
 window.onload = function () {
-  let divWrapper: HTMLDivElement = document.createElement("div");
-  divWrapper.id = "todo-wrapper";
-  document.body.appendChild(divWrapper);
+  let todoWrapper: HTMLDivElement = document.createElement("div");
+  todoWrapper.id = "todo-wrapper";
+  document.body.appendChild(todoWrapper);
 
-  let addInputValue: HTMLInputElement = document.getElementById(
+  let addInputValue: HTMLButtonElement = document.getElementById(
     "add-todo"
-  ) as HTMLInputElement;
+  ) as HTMLButtonElement;
   addInputValue.addEventListener("click", handleAddToList);
 
   myTodoList();
@@ -28,7 +28,7 @@ function handleAddToList(triggEvent: { preventDefault: () => void }) {
   } else {
     let newInputValue: string = getInputValue.value;
     let newTodo: Todo = new Todo(newInputValue);
-    todos.push(newTodo);
+    todos.unshift(newTodo);
     myTodoList();
   }
 }
@@ -43,20 +43,17 @@ function myTodoList() {
   for (let i = 0; i < todos.length; i++) {
     let listItems: HTMLLIElement = document.createElement("li");
     listItems.className = "todo-task";
+    listItems.setAttribute("draggable", "true");
 
     let listItemSpan: HTMLSpanElement = document.createElement("span");
     listItemSpan.className = " todo-task-span";
     listItemSpan.innerHTML = todos[i].listItem;
 
-    let checkTodo: HTMLDivElement = document.createElement("div");
+    let checkTodo: HTMLButtonElement = document.createElement("button");
     checkTodo.className = "check-todo";
-
-    let checkedItem: HTMLParagraphElement = document.createElement("p");
-    checkedItem.className = "check-todo-paragraph";
-    checkedItem.innerHTML = "✓";
+    checkTodo.innerHTML = "✓ ";
 
     unorderedList.appendChild(listItems);
-    checkTodo.appendChild(checkedItem);
     listItems.appendChild(listItemSpan);
 
     checkTodo.addEventListener("click", () => {
@@ -71,15 +68,11 @@ function myTodoList() {
     if (todos[i].done === true) {
       listItems.className = "todo-task-done";
     }
-    let removeTodo: HTMLDivElement = document.createElement("div");
+
+    let removeTodo: HTMLButtonElement = document.createElement("button");
     removeTodo.className = "remove-todo";
-
-    let removeTodoParagraph: HTMLParagraphElement = document.createElement("p");
-    removeTodoParagraph.className = "remove-todo-paragraph";
-    removeTodoParagraph.innerHTML = "X";
-
+    removeTodo.innerHTML = "X";
     unorderedList.appendChild(listItems);
-    removeTodo.appendChild(removeTodoParagraph);
 
     removeTodo.addEventListener("click", () => {
       todos.splice(i, 1);
@@ -91,6 +84,7 @@ function myTodoList() {
     document.getElementById("todo-wrapper").appendChild(unorderedList);
   }
 }
+
 function sortAbc() {
   let sortButton: HTMLButtonElement = document.getElementById(
     "sort-todos"
